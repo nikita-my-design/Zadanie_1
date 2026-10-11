@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mapa · Nikita Porokhovyi</title>
+    <meta name="description" content="Na mape ukazujem svoju školu a približnú polohu domova. Môžete pridať vlastné miesta a porovnať vzdialenosti.">
+    <script src="../js/theme.js"></script>
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            defer></script>
+
+    <script src="../js/script.js" defer></script>
+    <meta property="og:title" content="Mapa · Nikita Porokhovyi">
+    <meta property="og:description" content="Interaktívna mapa školy, domova a vlastných miest s výpočtom vzdialenosti.">
+    <meta property="og:image" content="https://webte1.fei.stuba.sk/~xporokhovyi/Z1_Porokhovyi/img/me.png">
+</head>
+
+
+<body> 
+    <a class="skip-link" href="#main-content">
+        Preskočiť na obsah
+    </a>
+
+    <header>
+
+        <div class = "header-flex-container">   
+            <div class = "header-favicon-container">   
+                <div class = "header-favicon">   
+                    <p>NP</p>
+                </div>
+
+                <div class = "header-favicon-text">   
+                    <p class = "favicon-name-text"> Nikita Porokhovyi</p>
+                    <p class = "favicon-subtitle-text"> Študent FEI STU</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <input
+                    class="header-menu-checkbox"
+                    type="checkbox"
+                    aria-label="Otvoriť navigáciu"
+                >
+
+                <nav class="header-nav-container">
+                    <ul class="header-nav-list">
+                        <li>
+                            <a class="navigation-page-link" href="../index.html">
+                                Profil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="cv.html">
+                                Životopis
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="workspace.html">
+                                Pracovné prostredie
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="schedule.html">
+                                Rozvrh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link current" href="map.html">
+                                Mapa
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Tmavý režim"
+                    aria-pressed="false"
+                >
+                    <img
+                        class="theme-icon-dark"
+                        src="../img/switch-to-dark-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                    <img
+                        class="theme-icon-light"
+                        src="../img/switch-to-light-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="map-page" id="main-content" tabindex="-1">
+        <div class="map-container">
+            <div class="map-intro">
+                <h1>Kde ma nájdete.</h1>
+                <p>
+                    Študujem na FEI STU v Bratislave. Na mape je moja škola
+                    a približná poloha môjho domova v Mlynskej doline.
+                </p>
+            </div>
+
+            <div class="map-layout">
+                <section class="map-section" aria-labelledby="map-title">
+                    <div class="map-heading">
+                        <h2 id="map-title">Bratislava</h2>
+                        <button class="map-link-button" id="reset-map-button" type="button">
+                            Škola a domov
+                        </button>
+                    </div>
+
+                    <div
+                        id="interactive-map"
+                        role="application"
+                        aria-label="Interaktívna mapa Bratislavy"
+                        aria-describedby="map-help"
+                        tabindex="0"
+                    >
+                    </div>
+
+                    <div class="map-legend">
+                        <span>
+                            <span class="legend-dot legend-school"></span>
+                            FEI STU
+                        </span>
+
+                        <span>
+                            <span class="legend-dot legend-home"></span>
+                            Domov
+                        </span>
+
+                        <span>
+                            <span class="legend-dot legend-place"></span>
+                            Moje miesto
+                        </span>
+                    </div>
+
+                    <p class="map-help" id="map-help">
+                        Kliknite na mapu a pridajte vlastné miesto.
+                        Pri ovládaní klávesnicou posúvajte mapu šípkami,
+                        približujte klávesmi + a − a klávesom Enter
+                        vyberte bod v strede mapy.
+                        Potom ho môžete porovnať so školou alebo domovom.
+                    </p>
+
+                    <p class="map-message" id="map-message" role="status" hidden></p>
+                    <noscript>
+                        <p class="map-message">
+                            Táto mapa potrebuje zapnutý JavaScript.
+                        </p>
+                    </noscript>
+                </section>
+
+                <section class="map-controls" aria-labelledby="places-title">
+                    <h2 id="places-title">Moje miesta</h2>
+                    <p class="map-help" id="empty-message">
+                        Zatiaľ nemáte pridané miesto. Začnite kliknutím na mapu.
+                    </p>
+
+                    <form class="place-form" id="place-form">
+                        <label for="place-name">Názov miesta</label>
+                        <input id="place-name" type="text" maxlength="60"
+                            placeholder="Napr. Moja zastávka" disabled required>
+
+                        <p class="map-help" id="position-message" role="status">
+                            Najprv vyberte bod na mape.
+                        </p>
+
+                        <button class="map-main-button" id="add-place-button" type="submit" disabled>
+                            Pridať miesto
+                        </button>
+                    </form>
+
+                    <div class="route-controls">
+                        <label for="place-list">Vyberte miesto</label>
+                        <div class="select-container">
+                            <select id="place-list" disabled>
+                                <option value="">Zatiaľ nemáte miesto</option>
+                            </select>
+
+                            <span class="select-arrow">
+                                <img src="../img/select-icon.svg" alt="">
+                            </span>
+                        </div>
+
+                        <fieldset id="target-buttons" disabled>
+                            <legend>Vyberte cieľ</legend>
+                            <div class="target-buttons">
+                                <button class="target-button current" id="school-button"
+                                    type="button" aria-pressed="true">
+                                    Do školy
+                                </button>
+                                <button class="target-button" id="home-button"
+                                    type="button" aria-pressed="false">
+                                    Domov
+                                </button>
+                            </div>
+                        </fieldset>
+
+                        <div class="distance-box" role="status">
+                            <p>Vzdušná vzdialenosť</p>
+                            <strong id="distance-value">—</strong>
+                            <span id="distance-description">
+                                Zobrazí sa po pridaní miesta.
+                            </span>
+                        </div>
+
+                        <button class="map-link-button delete-button" id="delete-place-button"
+                            type="button" disabled>
+                            Odstrániť miesto
+                        </button>
+                    </div>
+
+                    <p class="map-help storage-text">
+                        Pridané miesta sa ukladajú v tomto prehliadači.
+                        Poloha domova je približná.
+                    </p>
+                    <p class="map-message" id="storage-message" role="status" hidden></p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer class="site-footer">
+        <address class="footer-contact">
+            <a href="mailto:xporokhovyi@stuba.sk">
+                xporokhovyi@stuba.sk
+            </a>
+        </address>
+
+        <span>
+            Zdroje:
+            <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+            a
+            <a href="https://leafletjs.com/">Leaflet</a>
+        </span>
+
+        <p class="footer-copyright">© 2026 Nikita Porokhovyi</p>
+    </footer>
+
+
+</body>
+
+</html>

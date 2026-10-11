@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozvrh · Nikita Porokhovyi</title>
+    <meta name="description" content="Pozrite si môj týždenný rozvrh, najbližšiu hodinu a priebeh semestra.">
+    <script src="../js/theme.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <script src="../js/script.js" defer></script>
+    <meta property="og:title" content="Rozvrh · Nikita Porokhovyi">
+    <meta property="og:description" content="Môj rozvrh na FEI STU s filtrovaním výučby, aktuálnou hodinou a priebehom semestra.">
+    <meta property="og:image" content="https://webte1.fei.stuba.sk/~xporokhovyi/Z1_Porokhovyi/img/me.png">
+</head>
+
+<body> 
+    <a class="skip-link" href="#main-content">
+        Preskočiť na obsah
+    </a>
+
+    <header>
+
+        <div class = "header-flex-container">   
+            <div class = "header-favicon-container">   
+                <div class = "header-favicon">   
+                    <p>NP</p>
+                </div>
+
+                <div class = "header-favicon-text">   
+                    <p class = "favicon-name-text"> Nikita Porokhovyi</p>
+                    <p class = "favicon-subtitle-text"> Študent FEI STU</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <input
+                    class="header-menu-checkbox"
+                    type="checkbox"
+                    aria-label="Otvoriť navigáciu"
+                >
+
+                <nav class="header-nav-container">
+                    <ul class="header-nav-list">
+                        <li>
+                            <a class="navigation-page-link" href="../index.html">
+                                Profil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="cv.html">
+                                Životopis
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="workspace.html">
+                                Pracovné prostredie
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link current" href="schedule.html">
+                                Rozvrh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" href="map.html">
+                                Mapa
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Tmavý režim"
+                    aria-pressed="false"
+                >
+                    <img
+                        class="theme-icon-dark"
+                        src="../img/switch-to-dark-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                    <img
+                        class="theme-icon-light"
+                        src="../img/switch-to-light-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="schedule-page" id="main-content" tabindex="-1">
+            <h1>Môj týždenný rozvrh</h1>
+
+            <div class="schedule-toolbar">
+                <div class="schedule-filters">
+
+                    <span class="filter-slider"></span>
+
+                    <button
+                        type="button"
+                        data-filter="all"
+                        class="selected"
+                        aria-pressed="true"
+                    >
+                        Všetko
+                    </button>
+
+                    <button
+                        type="button"
+                        data-filter="lecture"
+                        aria-pressed="false"
+                    >
+                        Prednášky
+                    </button>
+
+                    <button
+                        type="button"
+                        data-filter="exercise"
+                        aria-pressed="false"
+                    >
+                        Cvičenia
+                    </button>
+                </div>
+
+                <div class="study-status-container">
+                    <div class="study-current-status">
+                        <div class="status-point"> </div>
+                        <p class="status-description">Výučba práve neprebieha</p>
+                    </div>
+
+                    <div class="next-lesson">
+                        <div class="next-lesson-point"> </div>
+                        <p class="next-lesson-description">Najbližšia hodina: piatok o 8:00</p>
+                    </div>
+
+
+                </div>
+
+
+            
+            </div>
+
+<p id="schedule-status"></p>
+
+            <div
+                class="schedule-scroll-and-radius"
+                tabindex="0"
+                role="region"
+                aria-label="Týždenný rozvrh. Na posúvanie použite šípky.">
+
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Deň</th>
+                            <th>7:00</th>
+                            <th>8:00</th>
+                            <th>9:00</th>
+                            <th>10:00</th>
+                            <th>11:00</th>
+                            <th>12:00</th>
+                            <th>13:00</th>
+                            <th>14:00</th>
+                            <th>15:00</th>
+                            <th>16:00</th>
+                            <th>17:00</th>
+                            <th>18:00</th>
+                            <th>19:00</th>
+                            <th>20:00</th>
+                            <th>21:00</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th>Pondelok</th>
+                            <td colspan="4"> </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="exercise sport"
+                                    data-day="1"
+                                    data-start="11:00"
+                                    data-end="12:50"
+                                    data-type="exercise">
+                                    
+                                    <p class="bold">Telesná kultúra 5</p>
+                                    11:00–12:50<br>
+                                    Posilňovanie · pos
+                                </div>
+                            </td>
+
+                            <td colspan="2" style="padding: 0;">
+                                <div class="exercise"
+                                    data-day="1"
+                                    data-start="13:00"
+                                    data-end="14:50"
+                                    data-type="exercise">
+
+                                    <p class="bold">Webové technológie 1</p>
+                                    13:00–14:50<br>
+                                    Cvičenie · c137
+                                </div>
+                            </td>
+
+                            <td colspan="2" style="padding: 0;">
+                                <div class="lecture"
+                                    data-day="1"
+                                    data-start="15:00"
+                                    data-end="16:50"
+                                    data-type="lecture">
+
+                                    <p class="bold">Lineárna algebra 2</p>
+                                    15:00–16:50<br>
+                                    Prednáška · cd300
+                                </div>
+                            </td>
+                            <td colspan="5"> </td>
+                            
+                        </tr>
+
+                        <tr>
+                            <th>Utorok</th>
+                            <td colspan="3"> </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="lecture"
+                                    data-day="2"
+                                    data-start="10:00"
+                                    data-end="11:50"
+                                    data-type="lecture">
+
+                                    <p class="bold">Webové technológie 1</p>
+                                    10:00–11:50<br>
+                                    Prednáška · cd150
+                                </div>
+                            </td>
+                            <td colspan="3"> </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="lecture"
+                                    data-day="2"
+                                    data-start="15:00"
+                                    data-end="16:50"
+                                    data-type="lecture">
+
+                                    <p class="bold">Programovacie techniky</p>
+                                    15:00–16:50<br>
+                                    Prednáška · de300
+                                </div>
+                            </td>
+                            <td colspan="5"> </td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Streda</th>
+                            <td colspan="6"> </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="lecture"
+                                    data-day="3"
+                                    data-start="13:00"
+                                    data-end="14:50"
+                                    data-type="lecture">
+
+                                    <p class="bold">Webové technológie 1</p>
+                                    13:00–14:50<br>
+                                    Prednáška · cd150
+                                </div>
+                            </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="exercise"
+                                    data-day="3"
+                                    data-start="15:00"
+                                    data-end="16:50"
+                                    data-type="exercise">
+
+                                    <p class="bold">Lineárna algebra 2</p>
+                                    15:00–16:50<br>
+                                    Cvičenie · c329
+                                </div>
+                            </td>
+                            <td colspan="5"> </td>
+                        </tr>
+                        <tr>
+                            <th>Štvrtok</th>
+                            <td> </td>
+                            <td colspan="2" style="padding: 0;">
+                                <div class="exercise"
+                                    data-day="4"
+                                    data-start="8:00"
+                                    data-end="9:50"
+                                    data-type="exercise">
+                                    
+                                    <p class="bold">Programovacie techniky</p>
+                                    8:00–9:50<br>
+                                    Cvičenie · cd300
+                                </div>
+                            </td>
+                            <td colspan="12"> </td>
+                        </tr>
+                        <tr>
+                            <th>Piatok</th>
+                            <td colspan="15" style="height: 59px;"> </td>            
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester-progress">
+                <h2>Priebeh semestra</h2>
+                <p>
+                    Uplynulo:
+                    <span class="semester-percent">0%</span>
+                </p>
+
+                <div class="semester-bar">
+                    <div class="semester-bar-fill"></div>
+                </div>
+            </div>
+            
+        </main>
+    <footer class="site-footer">
+        <address class="footer-contact">
+            <a href="mailto:xporokhovyi@stuba.sk">xporokhovyi@stuba.sk</a>
+        </address>
+
+        <p class="footer-copyright">© 2026 Nikita Porokhovyi</p>
+    </footer>
+
+
+</body>
+</html>
+
+
+
+        

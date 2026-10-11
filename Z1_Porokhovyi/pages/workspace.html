@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pracovné prostredie · Nikita Porokhovyi</title>
+    <meta name="description" content="Ukazujem svoje pracovné prostredie a pomôcky, ktoré používam pri dizajne a programovaní.">
+    <script src="../js/theme.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <meta property="og:title" content="Pracovné prostredie · Nikita Porokhovyi">
+    <meta property="og:description" content="Moje pracovné prostredie s interaktívnymi bodmi a popisom vybavenia.">
+    <meta property="og:image" content="https://webte1.fei.stuba.sk/~xporokhovyi/Z1_Porokhovyi/img/me.png">
+</head>
+
+<body> 
+    <a class="skip-link" href="#main-content">
+        Preskočiť na obsah
+    </a>
+    <header>
+        <div class = "header-flex-container">   
+            <div class = "header-favicon-container">   
+                <div class = "header-favicon">   
+                    <p>NP</p>
+                </div>
+
+                <div class = "header-favicon-text">   
+                    <p class = "favicon-name-text"> Nikita Porokhovyi</p>
+                    <p class = "favicon-subtitle-text"> Študent FEI STU</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <input
+                    class="header-menu-checkbox"
+                    type="checkbox"
+                    aria-label="Otvoriť navigáciu"
+                >
+
+                <nav class="header-nav-container">
+                    <ul class="header-nav-list">
+                        <li>
+                            <a class="navigation-page-link" href="../index.html">
+                                Profil
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="navigation-page-link"
+                                href="cv.html"
+                            >
+                                Životopis
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link current" 
+                                href="workspace.html"
+                                aria-current="page">
+                                Pracovné prostredie
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" 
+                                href="schedule.html">
+                                Rozvrh
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navigation-page-link" 
+                                href="map.html">
+                                Mapa
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Tmavý režim"
+                    aria-pressed="false"
+                >
+                    <img
+                        class="theme-icon-dark"
+                        src="../img/switch-to-dark-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                    <img
+                        class="theme-icon-light"
+                        src="../img/switch-to-light-theme.svg"
+                        alt=""
+                        width="46"
+                        height="46"
+                    >
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="workspace-page" id="main-content" tabindex="-1">
+        <h1>Moje pracovné prostredie</h1>
+        <div class="workspace-image">
+            <img
+                src="../img/my_workspace.png"
+                alt="Pracovný stôl s MacBookom Air, iPhonom, AirPods, modrou šálkou a ergonomickým kreslom"
+            >
+
+            <div class="workspace-point laptop-point">
+                <button type="button" aria-label="MacBook Air M1" aria-describedby="laptop-description">1</button>
+                <div class="point-description" id="laptop-description">
+                    <h2>MacBook Air M1</h2>
+                    <p>Používam ho na tvorbu návrhov vo Figme,
+                        programovanie a prácu na webových projektoch.</p>
+                </div>
+            </div>
+
+            <div class="workspace-point phone-point">
+                <button type="button" aria-label="iPhone 15 Pro Max" aria-describedby="phone-description">2</button>
+                <div class="point-description" id="phone-description">
+                    <h2>iPhone 15 Pro Max</h2>
+                    <p>Testujem na ňom, ako sa moje webové stránky
+                    správajú na menšom displeji.</p>
+                </div>
+            </div>
+
+            <div class="workspace-point airpods-point">
+                <button type="button" aria-label="AirPods Pro 2" aria-describedby="airpods-description">3</button>
+                <div class="point-description" id="airpods-description">
+                    <h2>AirPods Pro 2</h2>
+                    <p>Pomáhajú mi sústrediť sa pri práci
+                        a nerušene komunikovať s tímom.</p>
+                </div>
+            </div>
+
+            <div class="workspace-point cup-point point-left">
+                <button type="button" aria-label="Modrá šálka s čajom" aria-describedby="cup-description">4</button>
+                <div class="point-description" id="cup-description">
+                    <h2>Modrá šálka s čajom</h2>
+                    <p>Krátka prestávka pri čaji mi pomáha
+                        udržať pozornosť počas dlhšej práce.</p>
+                </div>
+            </div>
+
+            <div class="workspace-point chair-point point-left">
+                <button type="button" aria-label="Ergonomické kreslo" aria-describedby="chair-description">5</button>
+                <div class="point-description" id="chair-description">
+                    <h2>Ergonomické kreslo</h2>
+                    <p>Poskytuje mi pohodlie pri dlhšom
+                        sedení pri počítači.</p>
+                </div>
+            </div>
+            
+        </div>
+
+    
+    </main>
+
+
+    <footer class="site-footer">
+        <address class="footer-contact">
+            <a href="mailto:xporokhovyi@stuba.sk">xporokhovyi@stuba.sk</a>
+        </address>
+
+        <span>Obrázok pracovného prostredia bol vytvorený pomocou
+            <a href="https://chatgpt.com/">ChatGPT</a>.
+        </span>
+
+        <p class="footer-copyright">© 2026 Nikita Porokhovyi</p>
+    </footer>
+
+
+</body>
+</html>
